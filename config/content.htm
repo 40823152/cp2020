@@ -497,7 +497,8 @@ When looking at a customer’s personal computer, you must be able to easily ide
 </tr>
 </tbody>
 </table>
-<br/><br/><strong>P14 Connections Between Common Peripherals and </strong>
+<br/><br/>
+<h3>P14 Connections Between Common Peripherals and</h3>
 <p>Standard PortsConnections Between Common Peripherals and Standard Ports</p>
 <p>(通用外設與標準端口之間的連接)</p>
 <hr/>
@@ -889,7 +890,47 @@ When looking at a customer’s personal computer, you must be able to easily ide
 </tr>
 </tbody>
 </table>
+<h1>W2</h1>
 <p></p>
+<h1>W7</h1>
+<p><img alt="" height="432" src="/images/螢幕擷取畫面 2020-10-31 225140.png" width="525"/></p><h1>BUG</h1>
+<h2>cmsimde錯誤</h2>
+<p>github 送上去的資料沒有綠勾，cmsimde開不起來，要刪除cmsimde重新安裝。</p>
+<ol>
+<li>Delete the relevant section from the<span> </span><code>.gitmodules</code><span> </span>file.</li>
+<li>Stage the<span> </span><code>.gitmodules</code><span> </span>changes:<br/><code>git add .gitmodules</code></li>
+<li>Delete the relevant section from<span> </span><code>.git/config</code>.</li>
+<li>Remove the submodule files from the working tree and index:<br/><code>git rm --cached path_to_submodule</code><span> </span>(no trailing slash).</li>
+<li>Remove the submodule's<span> </span><code>.git</code><span> </span>directory:<br/><code>rm -rf .git/modules/path_to_submodule</code></li>
+<li>Commit the changes:<br/><code>git commit -m "Removed submodule &lt;name&gt;"</code></li>
+<li>Delete the now untracked submodule files:<br/><code>rm -rf path_to_submodule</code></li>
+</ol>
+<p>步驟</p>
+<p>1.把cp2020的<code>.gitmodules</code> 刪掉</p>
+<p>2.打<span>git add .gitmodules指令</span></p>
+<p><span>3.打git rm --cached cmsimde</span></p>
+<p><span>4.打rm -rf .git/modules/path_to_submodule #無法用rm，直接進到cp2020/.git檔/modules/刪掉cmsimde資料夾</span></p>
+<p><span>5.打git commit -m "cmsimde"</span></p>
+<p><span>6.打rm -rf path_to_submodule #無法用rm，直接進到cp2020刪掉cmsimde資料夾</span></p>
+<p>7.git submodule add <a href="https://github.com/mdecourse/cmsimde">https://github.com/mdecourse/cmsimde</a></p>
+<p>8.git add .</p>
+<p>9.git commit -m "name"</p>
+<p>10.git push</p><h1>常用指令</h1>
+<p>git version /檢查git</p>
+<p>path /目前命令列的指令</p>
+<p>git clone /複製遠端的內容下載</p>
+<p>git submodule add https://github.com/mdecourse/cmsimde.git cmsimde /建立cmsimde目錄已子模組存在加進來從網址下載</p>
+<p>git config --global http.proxy http://[2001:288:6004:17::69]:3128 /設定proxy</p>
+<p>git config --global user.name "40823152" /設定身份名子</p>
+<p>git config --global user.email "40823152@mde.nfu.edu.tw" /設定身份信箱</p>
+<p>python wsgi.py /用python執行動態網頁</p>
+<p>git add . /增加所做的是納入進去</p>
+<p>git commit -m "名稱" /設定標籤名子</p>
+<p>git push /推送資料</p>
+<p>git pull</p>
+<p>git clone --recurese-submadules 網址</p>
+<p>git remote add gitlab</p>
+<p>git push gitlab 網址</p>
 <p></p>
 <p></p>
 <p></p>
