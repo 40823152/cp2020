@@ -1,14 +1,4 @@
-<h1>About</h1>
-<p>此內容管理系統以 <a href="https://github.com/mdecourse/cmsimde">https://github.com/mdecourse/cmsimde</a> 作為 submodule 運作, 可以選定對應的版本運作, cmsimde 可以持續改版, 不會影響之前設為 submodule, 使用舊版 cmsimde 模組的內容管理相關運作.</p>
-<h4>利用 cmsimde 建立靜態網誌方法:</h4>
-<p>1. 在 github 建立倉儲, git clone 到近端</p>
-<p>2. 參考 <a href="https://github.com/mdecourse/newcms">https://github.com/mdecourse/newcms</a>, 加入除了 cmsimde 目錄外的所有內容</p>
-<p>以 git submodule add <a href="https://github.com/mdecourse/cmsimde">https://github.com/mdecourse/cmsimde</a> cmsimde</p>
-<p>建立 cmsimde 目錄, 並從 github 取下子模組內容.</p>
-<p>3.在近端維護時, 更換目錄到倉儲中的 cmsimde, 以 python wsgi.py 啟動近端網際伺服器.</p>
-<p>動態內容編輯完成後, 以 generate_pages 轉為靜態內容, 以 git add commit 及 push 將內容推到遠端.</p>
-<p>4. 之後若要以 git clone 取下包含 submodule 的所有內容, 執行:</p>
-<p>git clone --recurse-submodules <a href="https://github.com/mdecourse/newcms.git">https://github.com/mdecourse/newcms.git</a></p>
+<h1>First</h1>
 <h1>作業進度</h1>
 <table style="width: 465px;">
 <tbody>
@@ -66,10 +56,12 @@
 <td style="width: 199px; text-align: center; height: 15px;">
 <p><span>PCH 1英翻中</span></p>
 <p>W7</p>
+<p>BUG cmsinde錯誤</p>
 </td>
 <td style="width: 132px; text-align: center; height: 15px;">
 <p><span>PCH1:100%</span></p>
 <p><span>W7:25%</span></p>
+<p>cmsimde:100%</p>
 </td>
 </tr>
 </tbody>
@@ -893,7 +885,8 @@ When looking at a customer’s personal computer, you must be able to easily ide
 <h1>W2</h1>
 <p></p>
 <h1>W7</h1>
-<p></p><h1>BUG</h1>
+<p><img alt="" height="432" src="/images/螢幕擷取畫面 2020-10-31 225140.png" width="525"/></p>
+<h1>BUG</h1>
 <h2>cmsimde錯誤</h2>
 <p>github 送上去的資料沒有綠勾，cmsimde開不起來，要刪除cmsimde重新安裝。</p>
 <ol>
@@ -915,7 +908,8 @@ When looking at a customer’s personal computer, you must be able to easily ide
 <p>7.git submodule add <a href="https://github.com/mdecourse/cmsimde">https://github.com/mdecourse/cmsimde</a></p>
 <p>8.git add .</p>
 <p>9.git commit -m "name"</p>
-<p>10.git push</p><h1>常用指令</h1>
+<p>10.git push</p>
+<h1>常用指令</h1>
 <p>git version /檢查git</p>
 <p>path /目前命令列的指令</p>
 <p>git clone /複製遠端的內容下載</p>
@@ -931,6 +925,17 @@ When looking at a customer’s personal computer, you must be able to easily ide
 <p>git clone --recurese-submadules 網址</p>
 <p>git remote add gitlab</p>
 <p>git push gitlab 網址</p>
+<h2>About</h2>
+<p>此內容管理系統以 <a href="https://github.com/mdecourse/cmsimde">https://github.com/mdecourse/cmsimde</a> 作為 submodule 運作, 可以選定對應的版本運作, cmsimde 可以持續改版, 不會影響之前設為 submodule, 使用舊版 cmsimde 模組的內容管理相關運作.</p>
+<h4>利用 cmsimde 建立靜態網誌方法:</h4>
+<p>1. 在 github 建立倉儲, git clone 到近端</p>
+<p>2. 參考 <a href="https://github.com/mdecourse/newcms">https://github.com/mdecourse/newcms</a>, 加入除了 cmsimde 目錄外的所有內容</p>
+<p>以 git submodule add <a href="https://github.com/mdecourse/cmsimde">https://github.com/mdecourse/cmsimde</a> cmsimde</p>
+<p>建立 cmsimde 目錄, 並從 github 取下子模組內容.</p>
+<p>3.在近端維護時, 更換目錄到倉儲中的 cmsimde, 以 python wsgi.py 啟動近端網際伺服器.</p>
+<p>動態內容編輯完成後, 以 generate_pages 轉為靜態內容, 以 git add commit 及 push 將內容推到遠端.</p>
+<p>4. 之後若要以 git clone 取下包含 submodule 的所有內容, 執行:</p>
+<p>git clone --recurse-submodules<span> </span><a href="https://github.com/mdecourse/newcms.git">https://github.com/mdecourse/newcms.git</a></p>
 <p></p>
 <p></p>
 <p></p>
