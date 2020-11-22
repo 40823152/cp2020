@@ -74,15 +74,42 @@
 <p><span>網路環境介紹100%</span></p>
 </td>
 </tr>
+<tr style="height: 15px;">
+<td style="width: 39px; height: 15px; text-align: right;">w9:</td>
+<td style="width: 242px; text-align: center; height: 15px;">
+<p><span>期中考</span></p>
+</td>
+<td style="width: 162px; text-align: center; height: 15px;">
+<p><span>期中考</span></p>
+</td>
+</tr>
+<tr style="height: 15px;">
+<td style="width: 39px; height: 15px; text-align: right;">w10:</td>
+<td style="width: 242px; text-align: center; height: 15px;">
+<p><span>w10:會議紀錄</span></p>
+<p>程式練習(原w7標題)</p>
+<p><span>程式練習(w10)</span></p>
+</td>
+<td style="width: 162px; text-align: center; height: 15px;">
+<p><span>100%</span></p>
+<p><span>100%</span></p>
+<p><span>50%</span></p>
+</td>
+</tr>
+<tr style="height: 15px;">
+<td style="width: 39px; height: 15px; text-align: right;"></td>
+<td style="width: 242px; text-align: center; height: 15px;">
+<p><span></span></p>
+</td>
+<td style="width: 162px; text-align: center; height: 15px;">
+<p><span></span></p>
+</td>
+</tr>
 </tbody>
 </table>
 <p><em>未來計畫</em></p>
 <table style="width: 545px;">
 <tbody>
-<tr style="height: 19.4688px;">
-<td style="width: 40px; height: 19.4688px;"><span>W9:</span></td>
-<td style="width: 489px; height: 19.4688px;"></td>
-</tr>
 <tr style="height: 15px;">
 <td style="width: 40px; height: 15px;"></td>
 <td style="width: 489px; height: 15px;"></td>
@@ -96,8 +123,7 @@
 <td style="width: 489px; height: 15px;"></td>
 </tr>
 </tbody>
-</table>
-<h1>網站教學影片</h1>
+</table><h1>網站教學影片</h1>
 <p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">影片:<a href="https://youtu.be/wNmVh06l6JE">https://youtu.be/wNmVh06l6JE</a></span></span></p>
 <h1>W1作業</h1>
 <p></p>
@@ -893,12 +919,282 @@ When looking at a customer’s personal computer, you must be able to easily ide
 </tbody>
 </table>
 <h1>W2</h1>
-<p></p>
-<h1>W7</h1>
-<p>簡單程式練習</p>
+<pre class="brush:dart;auto-links:false;toolbar:false" contenteditable="false"> InputElement studListUrl = querySelector("#studListUrl");
+  String studUrl;
+  InputElement courseName = querySelector("#courseName");
+  String cName;
+  // 將 Label 改為 Textarea, 避免產生過程結果嵌入所在頁面
+  TextAreaElement output = querySelector("#output");
+  
+main() {
+  querySelector("#submit").onClick.listen((e) =&gt; grouping());
+}
+  
+grouping() {
+  output.innerHtml = "";
+  
+  if (studListUrl.value != "") {
+    studUrl = studListUrl.value;
+  } else {
+    studUrl = 'https://nfulist.herokuapp.com';
+  }
+  
+  if (courseName.value != "") {
+	cName = courseName.value;
+  } else {
+	cName = "cp2020";
+  }
+  
+  // 組序由 1 開始
+  int gth = 1;
+  // 迴圈序號變數
+  int i;
+  int j;
+  int total;
+  int inc;
+  // 每組學員暫存數列
+  var gpList = [];
+  // 全班分組數列
+  var group = [];
+  // 各組人數數列
+  var numList = [];
+  
+  HttpRequest.getString(studUrl).then((String resp) {
+    // 利用 trim() 去除字串最後的跳行符號, 之後再利用 split() 根據 \n 轉為數列
+    var studList = resp.trim().split("\n");
+    // 數列利用 shuffle() 方法以隨機方法弄亂順序
+    studList.shuffle();
+    total = studList.length;
+    output.text += "全班總計" + total.toString() + " 人\n";
+    numList = getNumList(studList.length);
+    inc = 0;
+    for (i in numList){
+      // 列印區隔符號
+      output.text += '=' * 20 + "\n";
+      output.text += "group $gth 有 " + i.toString() + " 人: \n";
+      gpList = [];
+      for (j = 0; j &lt; i; j++){
+        output.text += studList[j+inc] + "\n";
+        // 在各分組數列中加入將對應的學員學號
+        gpList.add(studList[j+inc]);
+      }
+      gth = gth + 1;
+      inc = inc + j;
+        //output.text += studList[j] + "\n";
+        // 逐步將各組暫存的分組數列加入全班分組數列中
+      gpList.sort();
+      group.add(gpList);
+    }
+    // 列出全班分組數列
+    output.text += group.toString() + "\n";
+    // 列出已經排序後的分組名單
+    output.text += '=' * 25 + "\n";
+    output.text += '以下為排序後的各組成員名單: \n';
+    gth = 1;
+    /*
+    404231
+    s4052
+    4062
+    s4072
+    4082
+    5072
+    5083
+    */
+    // 先列出純文字以 \n 跳行組員資料
+    for (i=0; i &lt; group.length; i++){
+      // 列印區隔符號
+      output.text += '=' * 20 + "\n";
+      output.text += "group $gth \n";
+      gpList = [];
+      for (j=0; j &lt; group[i].length; j++){
+        output.text += group[i][j] + "\n";
+      }
+      gth = gth + 1;
+    }
+     
+    gth = 1;
+    // 最後列出超文件以 &lt;br\&gt; 跳行組員資料, 包含倉儲與網站
+    for (i=0; i &lt; group.length; i++){
+      // 列印區隔符號
+      output.text += '\n' + '=' * 30 + "&lt;br \&gt;";
+      output.text += "group $gth &lt;br \&gt;";
+      gpList = [];
+      for (j=0; j &lt; group[i].length; j++){
+          if (group[i][j].startsWith('4052') || group[i][j].startsWith('4072')) {
+              output.text += "Repository: &lt;a href='https://github.com/s" + 
+                                      group[i][j] + "/" + cName + "'&gt;" + group[i][j] + 
+                                      "&lt;/a&gt;" + " | Site: &lt;a href='https://s" + group[i][j] + 
+                                      ".github.io/" + cName + "'&gt;" + group[i][j] + 
+                                      "&lt;/a&gt;&lt;br \&gt;";
+          }
+          else {
+              output.text += "Repository: &lt;a href='https://github.com/" + 
+                                      group[i][j] + "/" + cName +"'&gt;" + group[i][j] + 
+                                      "&lt;/a&gt;" + " | Site: &lt;a href='https://" + group[i][j] + 
+                                      ".github.io/" + cName + "'&gt;" + group[i][j] + 
+                                      "&lt;/a&gt;&lt;br \&gt;";
+          }
+      }
+      gth = gth + 1;
+    }
+  });
+}
+  
+List getNumList(int total){
+  // total student number
+  // int total = 65;
+  // initial each group expect to be "eachGrp" number of people
+  int eachGrp = 10;
+  // may divide into "grpNum" number of group
+  int grpNum = total ~/ eachGrp;
+  // vacant list
+  var splits = [];
+  // find remainder when total number divid into "grpNum" number of group
+  int remainder = total % grpNum;
+  // number of people in one group by calculation
+  int calGrp = total ~/ grpNum;
+  
+  for (int i = 0; i &lt; grpNum; i++) {
+    splits.add(calGrp);
+  }
+  //print(splits);
+  
+  for (int i = 0; i &lt; remainder; i++) {
+    splits[i] += 1;
+  }
+  //print(splits);
+  return splits;
+ }&lt;/pre&gt;
+&lt;p&gt;index.html&lt;/p&gt;
+&lt;pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false"&gt;&lt;h4&gt;亂數分組:&lt;/h4&gt;
+學員名單 URL: &lt;input type="text" id="studListUrl" size="60" value="https://nfulist.herokuapp.com"&gt;&lt;br /&gt;
+課程代號: &lt;input type="text" id="courseName" size="15" value="cp2020"&gt;&lt;br /&gt;
+&lt;input type="submit" value="開始分組" id="submit"&gt;&lt;br /&gt;
+&lt;textarea id="output" cols="80" rows="10"&gt;&lt;/textarea&gt;&lt;/pre&gt;
+&lt;p&gt;style.css&lt;/p&gt;
+&lt;pre class="brush:css;auto-links:false;toolbar:false" contenteditable="false"&gt;body {
+  color: white;
+  font-size: 20px;
+}
+ 
+input, select, textarea {
+font-size: 100%;
+}&lt;/pre&gt;
+&lt;p&gt;even_grouping.py&lt;/p&gt;
+&lt;pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"&gt;import random
+import requests
+  
+# getNumList 主要在每組最低人數下, 將不足 10 人的分組
+# 平均分配至各組
+def getNumList(total, eachGrp=10):
+    # total is the number of students
+    # each group at least 10 students
+    #eachGrp = 10;
+    # may divide into "grpNum" number of group
+    grpNum = total // eachGrp;
+    # check grpNum
+    #print(grpNum)
+    # vacan list
+    splits = []
+    # find remainder when total number divid into "grpNum" number of group
+    remainder = total % grpNum
+    # number of people in one group by calculation
+    calGrp = total // grpNum
+      
+    for i in range(grpNum):
+        splits.append(calGrp)
+          
+    # check first splits
+    #print(splits)
+    
+    for i in range(remainder):
+        splits[i] += 1
+      
+    # check final splits
+    #print(splits);
+    return splits;
+  
+# 儲存學生名單資料的 url
+target_url = "http://mde.tw/cp2020/downloads/get_student_list/2020spring_cd_2a_list.txt"
+# 利用 requests 讀取 url 中的資料
+f = requests.get(target_url)
+# get student list from target_url
+# 利用 splitlines() 將資料放入數列 studList
+studList = f.text.splitlines()
+# 每組預計分組的最低人數
+num_in_one_group = 10
+# 每組學員暫存數列
+gpList = []
+# 全班分組數列
+group = []
+# 各組人數數列
+numList = []
+# get numList
+numList = getNumList(len(studList), num_in_one_group)
+# check numList
+# 列出已經補齊的各組人數數列
+print("預計各組人數數列:" + str(numList))
+  
+output = ""
+gth = 1
+inc = 0
+  
+# 弄亂 studList
+random.shuffle(studList)
+output += "以下為尚未排序前的各組學員學號: \n"
+for i in numList:
+    # 列印區隔符號
+    output += '=' * 20 + "\n";
+    output += "group " + str(gth) + " 有 " + str(i) + " 人: \n"
+    # 每組學員暫存數列, 在此 reset
+    gpList = []
+    for j in range(i):
+        output += studList[j+inc] + "\n"
+        # 在各分組數列中加入將對應的學員學號
+        gpList.append(studList[j+inc])
+        
+    gth = gth + 1
+    inc = inc + j
+    # 將各組學員數列依照學號排序
+    gpList.sort()
+    group.append(gpList)
+  
+# 列出尚未排序前的分組結果
+print(output)
+# 列出已經完成排序的分組數列
+print("已經排序後的分組數列:" + str(group))
+  
+output = ""
+# 列出已經排序後的分組名單
+output += '=' * 25 + "\n"
+output += '以下為排序後的各組成員名單:\n'
+gth = 1
+  
+# 先列出純文字以 \n 跳行組員資料
+for i in range(len(group)):
+    # 列印區隔符號
+    output += '=' * 20 + "\n"
+    output += "group" + str(gth) + "\n"
+    gpList = []
+      
+    for j in range(len(group[i])):
+        output += str(group[i][j]) + "\n"
+        
+    gth = gth + 1
+      
+print(output)&lt;/pre&gt;
+&lt;h4&gt;使用 Brython&lt;/h4&gt;
+&lt;p&gt;&lt;a href="http://mde.tw/lab/content/Python.html"&gt;http://mde.tw/lab/content/Python.html&lt;/a&gt;&lt;/p&gt;
+&lt;pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"&gt;# 利用 Brython 內建的 open 開啟 url 後, 以 read() 將資料取出
+output = open('http://mde.tw/cp2020/downloads/get_student_list/2020spring_cd_2a_list.txt').read()</pre>
+<p><br/><br/></p>
+<h1>程式練習</h1>
+<h2>w7</h2>
+<p><strong></strong></p>
+<hr/>
 <p>Kaggle:<a href="https://www.kaggle.com/huangwelhan/cp2020w7">https://www.kaggle.com/huangwelhan/cp2020w7</a></p>
 <p><img alt="" height="432" src="/images/螢幕擷取畫面 2020-10-31 225140.png" width="525"/></p>
-<p>W8</p>
+<h2>W8</h2>
 <hr/>
 <p>Kaggle  <a href="https://www.kaggle.com/huangwelhan/cp2020w8">https://www.kaggle.com/huangwelhan/cp2020w8</a></p>
 <p>重複迴圈練習</p>
@@ -919,8 +1215,43 @@ while x&lt;=n:
     print(x)
     x=x+1
 #印出x+1到n為止</pre>
-<p><br/><br/></p>
+<h2>w10</h2>
+<p><a href="https://www.kaggle.com/huangwelhan/cp2020hw10">https://www.kaggle.com/huangwelhan/cp2020hw10</a></p>
+<p><strong>數列用法</strong></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">#數列[5,6,7]
+numbers = [17,12,13]
+#設定numbers為[17,12,13]
+numbers[0] =5
+#設定numbers中17改為5
+numbers[1] =6 
+#設定numbers中12改為6
+numbers[2] =7
+#設定numbers中13改為7
+print(numbers)
+#印出numbers</pre>
+<p><strong>t[:]用法</strong></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">#t[:]用法
+t = ['a', 'b', 'c', 'd', 'e', 'f','g']
+#t=數列[a.b.c.d.e.f.g]
+t1=t[:3]
+#t1=[a,b,c]
+t2=t[4:]
+#t2=[d,e,f,g]
+t3=t[:]
+#t3=[a,b,c,d,e,f,g]
+print(t1,t2,t3,sep="\n")
+#列印t1,t2,t3  註:sep="\n"是跳行的意思</pre>
 <p></p>
+<p><img alt="" height="708" src="/images/螢幕擷取畫面 2020-11-22 211734.png" width="1461"/></p>
+<p></p>
+<p></p>
+<p></p><h2>w11</h2>
+<h2>w12</h2>
+<h2>w13</h2>
+<h2>w14</h2>
+<h2>w15</h2>
+<h2>w16</h2>
+<h2>w17</h2>
 <p><br/><br/></p>
 <p></p>
 <h1>W8</h1>
@@ -932,6 +1263,12 @@ while x&lt;=n:
 <h1>W10</h1>
 <p>第三組網站:<a href="https://40823152.github.io/cp2020bg3/content/index.html">https://40823152.github.io/cp2020bg3/content/index.html</a></p>
 <p>第三組github:<a href="https://github.com/40823152/cp2020bg3">https://github.com/40823152/cp2020bg3</a></p>
+<hr/>
+<p><strong>會議記錄</strong></p>
+<p>介紹shareX</p>
+<p>分配hw3作業</p>
+<p>使用obs</p>
+<p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/WqUOWbLVbbQ" width="560"></iframe></p>
 <p></p>
 <p></p><h1>BUG</h1>
 <h2>cmsimde錯誤</h2>
