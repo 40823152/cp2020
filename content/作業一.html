@@ -133,8 +133,46 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">W10 << <a href='W10.html'>Previous</a> <a href='cmsimde錯誤.html'>Next</a> >> cmsimde錯誤<br /><h1>BUG</h1>
-<br />W10 << <a href='W10.html'>Previous</a> <a href='cmsimde錯誤.html'>Next</a> >> cmsimde錯誤</div>
+    <div id="tipue_search_content">W2作業 << <a href='W2作業.html'>Previous</a> <a href='作業二.html'>Next</a> >> 作業二<br /><h1>作業一</h1>
+<p>一乙數列(python)</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import urllib.request
+#導入urllib.request
+target_url = "https://nfulist.herokuapp.com/?semester=1091&amp;courseno=0776"
+#設target_url = "網址"
+cp1b = []
+#設cp1b=數列
+for line in urllib.request.urlopen(target_url):
+#重複打開target_url的迴圈定義line
+    cp1b.append(int(line.decode('utf-8').rstrip()))
+    #把line重新編碼加進cp1b(數列)   註:rstrip()刪除字尾符號
+print(cp1b)
+#印出cp1b
+</pre>
+<p></p>
+<p>成果:</p>
+<p><img caption="false" height="88" src="./../images/螢幕擷取畫面 2020-11-28 205145.png" width="600"/></p>
+<p>解題步驟:</p>
+<p>1. 導入物件</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import urllib.request</pre>
+<p>2.設url(要打開的網址)</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">target_url = "https://nfulist.herokuapp.com/?semester=1091&amp;courseno=0776"</pre>
+<p>3.設數列</p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">cp1b = []</pre>
+<p>4.設line為打開url的迴圈，並且使數列cp1b增加編碼後的line，最後刪除字尾符號</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">for line in urllib.request.urlopen(target_url):</pre>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">    cp1b.append(int(line.decode('utf-8').rstrip()))</pre>
+<p>5.印出1b的數列</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">print(cp1b)</pre>
+<p></p>
+<hr/>
+<p>kaggle:<a href="https://www.kaggle.com/huangwelhan/cp2020hw2/edit">https://www.kaggle.com/huangwelhan/cp2020hw2/edit</a></p>
+<p><img alt="" height="604" src="./../images/螢幕擷取畫面 2020-11-28 210024.png" width="1475"/></p>
+<p>不知道為什麼會超時而無法打開url。</p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<br />W2作業 << <a href='W2作業.html'>Previous</a> <a href='作業二.html'>Next</a> >> 作業二</div>
         
     <!-- footer -->
       <div class="container">

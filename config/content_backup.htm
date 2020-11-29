@@ -93,16 +93,20 @@
 <td style="width: 162px; text-align: center; height: 15px;">
 <p><span>100%</span></p>
 <p><span>100%</span></p>
-<p><span>50%</span></p>
+<p><span>100%</span></p>
 </td>
 </tr>
 <tr style="height: 15px;">
-<td style="width: 39px; height: 15px; text-align: right;"></td>
+<td style="width: 39px; height: 15px; text-align: right;">w11</td>
 <td style="width: 242px; text-align: center; height: 15px;">
-<p><span></span></p>
+<p><span></span>hw2:作業一</p>
+<p>hw3:第8題翻譯</p>
+<p>程式練習(w11)</p>
 </td>
 <td style="width: 162px; text-align: center; height: 15px;">
-<p><span></span></p>
+<p><span></span>100%</p>
+<p>50%</p>
+<p>30%</p>
 </td>
 </tr>
 </tbody>
@@ -918,7 +922,7 @@ When looking at a customer’s personal computer, you must be able to easily ide
 </tr>
 </tbody>
 </table>
-<h1>W2</h1>
+<h1>W2作業</h1>
 <pre class="brush:dart;auto-links:false;toolbar:false" contenteditable="false"> InputElement studListUrl = querySelector("#studListUrl");
   String studUrl;
   InputElement courseName = querySelector("#courseName");
@@ -1187,8 +1191,153 @@ print(output)&lt;/pre&gt;
 &lt;p&gt;&lt;a href="http://mde.tw/lab/content/Python.html"&gt;http://mde.tw/lab/content/Python.html&lt;/a&gt;&lt;/p&gt;
 &lt;pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"&gt;# 利用 Brython 內建的 open 開啟 url 後, 以 read() 將資料取出
 output = open('http://mde.tw/cp2020/downloads/get_student_list/2020spring_cd_2a_list.txt').read()</pre>
-<p><br/><br/></p>
-<h1>程式練習</h1>
+<p></p>
+<p><br/><br/><br/></p>
+<h2>作業一</h2>
+<p>一乙數列(python)</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import urllib.request
+#導入urllib.request
+target_url = "https://nfulist.herokuapp.com/?semester=1091&amp;courseno=0776"
+#設target_url = "網址"
+cp1b = []
+#設cp1b=數列
+for line in urllib.request.urlopen(target_url):
+#重複打開target_url的迴圈定義line
+    cp1b.append(int(line.decode('utf-8').rstrip()))
+    #把line重新編碼加進cp1b(數列)   註:rstrip()刪除字尾符號
+print(cp1b)
+#印出cp1b
+</pre>
+<p></p>
+<p>成果:</p>
+<p><img caption="false" height="88" src="/images/螢幕擷取畫面 2020-11-28 205145.png" width="600"/></p>
+<p>解題步驟:</p>
+<p>1. 導入物件</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import urllib.request</pre>
+<p>2.設url(要打開的網址)</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">target_url = "https://nfulist.herokuapp.com/?semester=1091&amp;courseno=0776"</pre>
+<p>3.設數列</p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">cp1b = []</pre>
+<p>4.設line為打開url的迴圈，並且使數列cp1b增加編碼後的line，最後刪除字尾符號</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">for line in urllib.request.urlopen(target_url):</pre>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">    cp1b.append(int(line.decode('utf-8').rstrip()))</pre>
+<p>5.印出1b的數列</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">print(cp1b)</pre>
+<p></p>
+<hr/>
+<p>kaggle:<a href="https://www.kaggle.com/huangwelhan/cp2020hw2/edit">https://www.kaggle.com/huangwelhan/cp2020hw2/edit</a></p>
+<p><img alt="" height="604" src="/images/螢幕擷取畫面 2020-11-28 210024.png" width="1475"/></p>
+<p>不知道為什麼會超時而無法打開url。</p>
+<p></p>
+<p></p>
+<p></p>
+<p></p>
+<h2>作業二</h2>
+<p></p>
+<h2>作業三</h2>
+<p></p>
+<h1>w3作業</h1>
+<h2>8 Rock-Paper-Scissors game rule</h2>
+<hr/>
+<p>Make a two-player Rock-Paper-Scissors game. (<em>Hint: Ask for player plays (using<span> </span><code class="highlighter-rouge">input</code>), compare them, print out a message of congratulations to the winner, and ask if the players want to start a new game</em>)</p>
+<p>Remember the rules:</p>
+<ul>
+<li>Rock beats scissors</li>
+<li>Scissors beats paper</li>
+<li>Paper beats rock</li>
+</ul>
+<p>製作兩人石頭剪刀布的遊戲。（提示：（使用<code class="highlighter-rouge">input</code>）詢問玩家玩法，進行比較，打印出對獲勝者表示祝賀的消息，並詢問玩家是否要開始新遊戲）</p>
+<p>記住規則：</p>
+<ul>
+<li>石頭打敗剪刀</li>
+<li>剪刀打敗布</li>
+<li>布打敗石頭</li>
+</ul>
+<p><strong>Discussion(討論區)</strong></p>
+<p>Concepts for this week:</p>
+<ul>
+<li>While loops</li>
+<li>Infinite loops</li>
+<li>Break statements</li>
+</ul>
+<p><span>本週的概念：</span></p>
+<ul>
+<li><span><span>While迴圈</span></span></li>
+<li><span><span>Infinite迴圈</span></span></li>
+<li><span><span>中斷聲明</span></span><span><span></span></span></li>
+</ul>
+<hr/>
+<p><strong>While loops(While迴圈)</strong></p>
+<p>We have already discussed<span> </span><code class="highlighter-rouge">for</code><span> </span>loops, or loops that look sequentially (one by one) at elements in a list. There is a second type of loop that works in a slightly different way called a<span> </span><code class="highlighter-rouge">while</code><span> </span>loop.</p>
+<p>The idea is simple: while a certain condition is<span> </span><code class="highlighter-rouge">True</code>, keep doing something. For example:</p>
+<p><span>我們已經討論過</span><code class="highlighter-rouge">for</code><span>循環，或循環（逐一）查看列表中的元素的循環。還有第二種類型的循環，其工作方式略有不同，稱為</span><code class="highlighter-rouge">while</code><span>循環。</span></p>
+<p><span><span>這個想法很簡單：在一定條件下</span></span><code class="highlighter-rouge">True</code><span><span>，繼續做某事。</span><span>例如：</span></span></p>
+<figure class="highlight">
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"> a = 5
+  while (a &gt; 0):
+    print(a)
+    a -= 1</pre>
+<pre><br/><br/></pre>
+</figure>
+<p>The output of this code segment is:</p>
+<p><span>代碼的輸出為：</span></p>
+<figure class="highlight">
+<pre><code class="language-python" data-lang="python">  <span class="mi">5</span>
+  <span class="mi">4</span>
+  <span class="mi">3</span>
+  <span class="mi">2</span>
+  <span class="mi">1</span></code></pre>
+</figure>
+<p>A particularly useful way to use<span> </span><code class="highlighter-rouge">while</code><span> </span>loops is checking user input for correctness. For example:</p>
+<p><span>使用</span><code class="highlighter-rouge">while</code><span><span>循環的</span><span>一種特別有用的方法</span><span>是檢查用戶輸入的正確性。</span><span>例如：</span></span></p>
+<figure class="highlight">
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">  quit = input('Type "enter" to quit:' )
+  while quit != "enter":
+    quit = input('Type "enter" to quit:' )</pre>
+<pre></pre>
+</figure>
+<hr/>
+<p>The uses for this are infinite, and can (and should!) be combined with conditionals to yield the most efficient results.</p>
+<p><span>此方法的用途是無限的，並且可以（並且應該！）與條件條件結合使用以產生最有效的結果。</span></p>
+<p>Infinite loops(無限迴圈)</p>
+<p>An infinite loop is a loop that never stops. This means that the condition in the beginning of the while loop will always be true.</p>
+<p>For example:</p>
+<p><span>無限循環是永不停止的循環。這意味著while循環開始時的條件將始終為true。</span></p>
+<p><span><span>例如：</span></span></p>
+<figure class="highlight">
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">i = 5
+  while i &gt; 0:
+    print("Inside the loop")</pre>
+</figure>
+<p>What will happen is the loop will print out the phrase “Inside the loop” forever and ever. If you are running your computer, you will have to “kill the program” to stop it. Each operating system has a different way of “killing a program” to get out of an infinite loop.</p>
+<p>On Linux: in the terminal, type “CTRL-C” to kill the program that is currently running in the terminal. If you are using the IDLE Python IDE, then you must press “CTRL-D” to exit your running program. When in doubt, do a Google search before you start programming!</p>
+<p>On Windows: type “CTRL-ALT-DEL” and open the task manager to kill the program.</p>
+<p>On Mac: right-click on the task, and kill the program that is running forever.</p>
+<p>If you find yourself in an infinite loop, your program will never end.</p>
+<p><span>將會發生的是，循環將永遠打印出短語“ Inside the loop”。如果您正在運行計算機，則必須“清除該程序”以將其停止。每個編碼軟體都有不同的“清除程序”以擺脫無限循環的方式。</span></p>
+<p><span><span>在Linux上：在終端中，鍵入“ CTRL-C”以終止終端中當前正在運行的程序。</span><span>如果使用的是IDLE Python IDE，則必須按“ CTRL-D”退出正在運行的程序。</span><span>如有疑問，請在開始編程之前進行Google搜索！</span></span></p>
+<p><span><span>在Windows上：鍵入“ CTRL-ALT-DEL”並打開任務管理器以終止程序。</span></span></p>
+<p><span><span>在Mac上：右鍵單擊該任務，然後終止永久運行的程序。</span></span></p>
+<p><span><span>如果發現自己陷入無限循環，則程序將永遠不會結束。</span></span></p>
+<hr/>
+<p><br/>Break statements(<strong>中斷聲明</strong>)</p>
+<p>A<span> </span><code class="highlighter-rouge">break</code><span> </span>statement stops the execution of a loop before the original condition is met. While the use of a<span> </span><code class="highlighter-rouge">break</code><span> </span>statement will often start an argument about good coding practices, sometimes it is useful.</p>
+<p>For example:</p>
+<p><code class="highlighter-rouge">break</code><span>在滿足原始條件之前，一條語句將停止執行循環。儘管使用</span><code class="highlighter-rouge">break</code><span>語句通常會引發關於實際編碼的爭論，但有時它很有用。</span></p>
+<p><span><span>例如：</span></span></p>
+<figure class="highlight">
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">while True: 
+    usr_command = input("Enter your command: ")
+    if usr_command == "quit":
+      break
+    else: 
+      print("You typed " + usr_command)</pre>
+</figure>
+<p>In this case, the<span> </span><code class="highlighter-rouge">break</code><span> </span>statement is used to break off the “infinite while loop” that we have constructed with the<span> </span><code class="highlighter-rouge">while True</code><span> </span>statement.</p>
+<p><span>在這種情況下，該</span><code class="highlighter-rouge">break</code><span><span>語句用於中斷我們使用該</span></span><code class="highlighter-rouge">while True</code><span><span>語句</span><span>構造的“無限while循環”<span> </span></span><span>。</span></span></p>
+<p><strong>Happy coding!</strong></p>
+<p><strong>編碼愉快!</strong></p><h3>Rock-Paper-Scissors game coding</h3>
+<p></p><h1>程式練習</h1>
 <h2>w7</h2>
 <p><strong></strong></p>
 <hr/>
@@ -1245,8 +1394,19 @@ print(t1,t2,t3,sep="\n")
 <p><img alt="" height="708" src="/images/螢幕擷取畫面 2020-11-22 211734.png" width="1461"/></p>
 <p></p>
 <p></p>
-<p></p><h2>w11</h2>
-<h2>w12</h2>
+<p></p>
+<h2>w11</h2>
+<pre><strong>Type "enter" to quit:enter</strong></pre>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">#輸入enter離開迴圈
+quit = input('Type "enter" to quit:' )
+#設quit為數入'內容'
+#註input():輸入
+while quit != "enter":
+#設quit為"enter"迴圈
+    quit = input('Type "enter" to quit:' )
+    #使quit輸出'內容'
+    #"enter":要輸入的內容</pre>
+<p></p><h2>w12</h2>
 <h2>w13</h2>
 <h2>w14</h2>
 <h2>w15</h2>
@@ -1270,12 +1430,13 @@ print(t1,t2,t3,sep="\n")
 <p>使用obs</p>
 <p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/WqUOWbLVbbQ" width="560"></iframe></p>
 <p>w3工作分配</p>
+<p><img alt="" height="398" src="/images/螢幕擷取畫面 2020-11-22 213426.png" width="191"/></p>
 <p></p>
 <p></p>
 <p></p>
 <p></p>
 <p></p>
-<p></p><h1>BUG</h1>
+<h1>BUG</h1>
 <h2>cmsimde錯誤</h2>
 <p>github 送上去的資料沒有綠勾，cmsimde開不起來，要刪除cmsimde重新安裝。</p>
 <ol>
