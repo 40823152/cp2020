@@ -188,7 +188,29 @@ def compare(u1, u2):
 print(compare(user1_answer, user2_answer))
 #印出compare(u1, u2)
 </pre>
-<p><strong></strong></p><br />8 Rock-Paper-Scissors game rule << <a href='8 Rock-Paper-Scissors game rule.html'>Previous</a> <a href='25 Guessing Game Two game.html'>Next</a> >> 25 Guessing Game Two game</div>
+<p><strong></strong></p>
+<p><strong></strong></p>
+<p><strong></strong></p>
+<p><strong>缺點:</strong></p>
+<p><strong>1.猜拳會顯示出來。</strong></p>
+<p><strong>2.玩家2只要出剪刀時頭布以外一定贏。</strong></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">   elif u1 == 'paper':
+    #定義u1=paper
+        if u2 == 'rock':
+        #如果u2=rock
+            return("Paper wins!")
+            #返回(顯示"Paper wins!")
+        else:
+         #若u2不是rock
+            return("Scissors win!")
+            #返回(顯示"Scissors win!")
+    else:
+    #若u1不是rock, paper or scissors
+        return("Invalid input! You have not entered rock, paper or scissors, try again.")
+        #返回(顯示"nvalid inputS!")
+        sys.exit()</pre>
+<p><strong></strong>因為u2不是剪刀或石頭會直接結束迴圈並顯示剪刀的勝利。</p>
+<p><strong> </strong></p><br />8 Rock-Paper-Scissors game rule << <a href='8 Rock-Paper-Scissors game rule.html'>Previous</a> <a href='25 Guessing Game Two game.html'>Next</a> >> 25 Guessing Game Two game</div>
         
     <!-- footer -->
       <div class="container">

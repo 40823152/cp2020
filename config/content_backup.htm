@@ -1380,8 +1380,67 @@ print(cp1b)
 <p><strong>編碼愉快!</strong></p>
 <h3>Rock-Paper-Scissors game coding</h3>
 <p><strong></strong></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import sys
+#導入sys函數
+ 
+user1 = input("What's your name?")
+user2 = input("And your name?")
+user1_answer = input("%s, do yo want to choose rock, paper or scissors?" % user1)
+user2_answer = input("%s, do you want to choose rock, paper or scissors?" % user2)
+ 
+def compare(u1, u2):
+#定義compare(u1,u2)
+    if u1 == u2:
+    #如果u1=u2
+        return("It's a tie!")
+        #返回(顯示"It's a tie!")
+    elif u1 == 'rock':
+    #定義u1=rock
+        if u2 == 'scissors':
+        #如果u2=scrissors
+            return("Rock wins!")
+            #返回(顯示"Rock wins!")
+        else:
+        #若u2不是scrissors
+            return("Paper wins!")
+            #返回(顯示"Paper wins!")
+    elif u1 == 'scissors':
+    #定義u1=scissors
+        if u2 == 'paper':
+         #如果u2=paper
+            return("Scissors win!")
+            #返回(顯示"Scissors win!")
+        else:
+        #若u2不是paper
+            return("Rock wins!")
+            #返回(顯示"Rock wins!")
+    elif u1 == 'paper':
+    #定義u1=paper
+        if u2 == 'rock':
+        #如果u2=rock
+            return("Paper wins!")
+            #返回(顯示"Paper wins!")
+        else:
+         #若u2不是rock
+            return("Scissors win!")
+            #返回(顯示"Scissors win!")
+    else:
+    #若u1不是rock, paper or scissors
+        return("Invalid input! You have not entered rock, paper or scissors, try again.")
+        #返回(顯示"nvalid inputS!")
+        sys.exit()
+         
+print(compare(user1_answer, user2_answer))
+#印出compare(u1, u2)
+</pre>
 <p><strong></strong></p>
-<h2>25 Guessing Game Two game</h2>
+<p><strong></strong></p>
+<p><strong></strong></p>
+<p><strong>缺點:</strong></p>
+<p><strong>1.猜拳會顯示出來。</strong></p>
+<p><strong>2.玩家2只要出剪刀時頭布以外一定贏。</strong></p>
+<p><strong></strong></p>
+<p><strong> </strong></p><h2>25 Guessing Game Two game</h2>
 <p>        <span>猜謎遊戲2</span></p>
 <hr/>
 <p>In<span> </span><a href="https://www.practicepython.org/exercise/2014/04/02/09-guessing-game-one.html">a previous exercise</a>, we’ve written a program that “knows” a number and asks a user to guess it.</p>

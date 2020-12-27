@@ -1433,7 +1433,29 @@ def compare(u1, u2):
 print(compare(user1_answer, user2_answer))
 #印出compare(u1, u2)
 </pre>
-<p><strong></strong></p><h2>25 Guessing Game Two game</h2>
+<p><strong></strong></p>
+<p><strong></strong></p>
+<p><strong></strong></p>
+<p><strong>缺點:</strong></p>
+<p><strong>1.猜拳會顯示出來。</strong></p>
+<p><strong>2.玩家2只要出剪刀時頭布以外一定贏。</strong></p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">   elif u1 == 'paper':
+    #定義u1=paper
+        if u2 == 'rock':
+        #如果u2=rock
+            return("Paper wins!")
+            #返回(顯示"Paper wins!")
+        else:
+         #若u2不是rock
+            return("Scissors win!")
+            #返回(顯示"Scissors win!")
+    else:
+    #若u1不是rock, paper or scissors
+        return("Invalid input! You have not entered rock, paper or scissors, try again.")
+        #返回(顯示"nvalid inputS!")
+        sys.exit()</pre>
+<p><strong></strong>因為u2不是剪刀或石頭會直接結束迴圈並顯示剪刀的勝利。</p>
+<p><strong> </strong></p><h2>25 Guessing Game Two game</h2>
 <p>        <span>猜謎遊戲2</span></p>
 <hr/>
 <p>In<span> </span><a href="https://www.practicepython.org/exercise/2014/04/02/09-guessing-game-one.html">a previous exercise</a>, we’ve written a program that “knows” a number and asks a user to guess it.</p>
