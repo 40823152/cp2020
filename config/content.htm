@@ -1,4 +1,16 @@
-<h1>作業進度</h1>
+<h1>網頁簡介</h1>
+<p>分組網頁:<a href="https://40823152.github.io/cp2020bg3/content/40923217.html">https://40823152.github.io/cp2020bg3/content/40923217.html</a></p>
+<p><strong>作業進度:</strong>w1-w17的網頁紀錄</p>
+<p><strong>hw1作業:</strong>個人作業與團隊作業與組員工作分配，並把資料整合到分組網頁裡。</p>
+<p><strong>hw2作業:</strong>作業一乙班數列程式，與教學步驟</p>
+<p><strong>hw3作業:</strong>個人分配的作業。(08有解題心得與教學)</p>
+<p><strong>內容:</strong>w3教學影片</p>
+<p>       w8工作環境介紹</p>
+<p>       會議紀錄(4個影片)</p>
+<p>       python程式練習( print 迴圈 數列 input)</p>
+<p><strong>Bug:</strong>修正cmsimde錯誤教學</p>
+<p>       修正相同標題錯誤教學</p>
+<p>       </p><h1>作業進度</h1>
 <p>第三組網頁: <a href="https://40823152.github.io/cp2020bg3/content/index.html">https://40823152.github.io/cp2020bg3/content/index.html</a></p>
 <table style="width: 464px;">
 <tbody>
@@ -152,9 +164,29 @@
 <tr style="height: 15.4688px;">
 <td style="width: 39px; height: 15.4688px; text-align: right;">w15</td>
 <td style="width: 242px; text-align: center; height: 15.4688px;">
+<p>cp2020bg3-hw1 finish</p>
+</td>
+<td style="width: 162px; text-align: center; height: 15.4688px;">
+<p>100%</p>
+</td>
+</tr>
+<tr style="height: 15.4688px;">
+<td style="width: 39px; height: 15.4688px; text-align: right;">w16</td>
+<td style="width: 242px; text-align: center; height: 15.4688px;">
 <p>hw3:08 coding </p>
 </td>
 <td style="width: 162px; text-align: center; height: 15.4688px;">
+<p>100%</p>
+</td>
+</tr>
+<tr style="height: 15.4688px;">
+<td style="width: 39px; height: 15.4688px; text-align: right;">w17</td>
+<td style="width: 242px; text-align: center; height: 15.4688px;">
+<p>內容更改(會議記錄名稱)</p>
+<p>網頁簡介</p>
+</td>
+<td style="width: 162px; text-align: center; height: 15.4688px;">
+<p>100%</p>
 <p>100%</p>
 </td>
 </tr>
@@ -769,7 +801,8 @@ When looking at a customer’s personal computer, you must be able to easily ide
 </div>
 </div>
 <h2>團隊</h2>
-<h3>hw1組員分配</h3>
+<p>小組網站:<a href="https://40823152.github.io/cp2020bg3/content/40923217.html">https://40823152.github.io/cp2020bg3/content/40923217.html</a></p><h3>hw1組員分配</h3>
+<p>小組網站:<a href="https://40823152.github.io/cp2020bg3/content/40923217.html">https://40823152.github.io/cp2020bg3/content/40923217.html</a></p>
 <p>40823152:</p>
 <table bgcolor="#dedacb" border="0" cellpadding="4" cellspacing="1" width="100%">
 <tbody>
@@ -964,12 +997,7 @@ When looking at a customer’s personal computer, you must be able to easily ide
 </td>
 </tr>
 </tbody>
-</table>
-</td>
-</tr>
-</tbody>
-</table>
-<h1>hw2作業</h1>
+</table><h1>hw2作業</h1>
 <pre class="brush:dart;auto-links:false;toolbar:false" contenteditable="false"> InputElement studListUrl = querySelector("#studListUrl");
   String studUrl;
   InputElement courseName = querySelector("#courseName");
@@ -1513,8 +1541,58 @@ return() #使用返回
 <p><strong>編碼愉快!</strong></p>
 <h3>Guessing Game Two game coding</h3>
 <p></p>
-<p></p>
-<h2>27 Tic Tac Toe Draw</h2>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">'''
+In a previous exercise, we've written a program that 'knows' a number and asks a user to guess it.
+This time, we're going to do exactly the opposite.
+You, the user, will have in your head a number between 0 and 100.
+The program will guess a number, and you, the user, will say whether it is too high, too low, or your number.
+
+At the end of this exchange, your program should print out how many guesses it took to get your number.
+
+As the writer of this program, you will have to choose how your program will strategically guess.
+A naive strategy can be to simply start the guessing at 1, and keep going (2, 3, 4, etc.) until you hit the number.
+But that's not an optimal guessing strategy.
+An alternate strategy might be to guess 50 (right in the middle of the range), and then increase / decrease by 1 as needed.
+After you've written the program, try to find the optimal strategy! (We'll talk about what is the optimal one next week with the solution.)
+'''
+
+import random
+
+# Awroken
+
+MINIMUM = 0
+MAXIMUM = 100
+NUMBER = random.randint(MINIMUM, MAXIMUM)
+TRY = 0
+RUNNING = True
+ANSWER = None
+
+while RUNNING:
+    print "Is it %s?" % str(NUMBER)
+    ANSWER = raw_input()
+    if "no" in ANSWER.lower() and "lower" in ANSWER.lower():
+        NUMBER -= random.randint(1, 4)
+    elif "no" in ANSWER.lower() and "higher" in ANSWER.lower():
+        NUMBER += random.randint(1, 4)
+    elif ANSWER.lower() == "no":
+        print "Higher or lower?"
+        ANSWER = raw_input()
+        if ANSWER.lower() == "higher":
+            NUMBER += random.randint(1, 4)
+        elif ANSWER.lower() == "lower":
+            NUMBER -= random.randint(1, 4)
+    elif ANSWER.lower() == "yes":
+        if TRY &lt; 2:
+            print "Yes! It only took me %s try!" % str(TRY)
+        elif TRY &lt; 2 and TRY &lt; 10:
+            print "Pretty well for a robot, %s tries." % str(TRY)
+        else:
+            print "That's so bad, %s tries." % str(TRY)
+        RUNNING = False
+    TRY += 1
+    
+print "Thanks for the game!"</pre>
+<p><br/><br/></p><h2>27 Tic Tac Toe Draw</h2>
 <p><em>This exercise is Part 3 of 4 of the Tic Tac Toe exercise series. The other exercises are:<span> </span><a href="https://www.practicepython.org/exercise/2014/12/27/24-draw-a-game-board.html">Part 1</a>,<span> </span><a href="https://www.practicepython.org/exercise/2015/11/16/26-check-tic-tac-toe.html">Part 2</a>, and<span> </span><a href="https://www.practicepython.org/exercise/2016/08/03/29-tic-tac-toe-game.html">Part 4</a>.</em></p>
 <p>In a<span> </span><a href="https://www.practicepython.org/exercise/2015/11/16/26-check-tic-tac-toe.html">previous exercise</a><span> </span>we explored the idea of using a list of lists as a “data structure” to store information about a tic tac toe game. In a tic tac toe game, the “game server” needs to know where the<span> </span><code class="highlighter-rouge">X</code>s and<span> </span><code class="highlighter-rouge">O</code>s are in the board, to know whether player 1 or player 2 (or whoever is<span> </span><code class="highlighter-rouge">X</code><span> </span>and<span> </span><code class="highlighter-rouge">O</code><span> </span>won).</p>
 <p>There has also been an exercise about<span> </span><a href="https://www.practicepython.org/exercise/2014/12/27/24-draw-a-game-board.html">drawing the actual tic tac toe gameboard</a><span> </span>using text characters.</p>
@@ -1586,7 +1664,21 @@ return() #使用返回
 <p><strong>Happy coding!</strong></p>
 <p><em></em></p>
 <h3>Tic Tac Toe Draw coding</h3>
-<h2>29 Tic Tac Toe Game</h2>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">def drawboard(board):
+    print ('    |   |   ')
+    print ('' +board[6]+ '    | ' +board[7]+ '  |   ' +board[8] )
+    print ('    |   |   ')
+    print ('---------------')
+    print ('    |   |   ')
+    print ('' +board[3]+ '    | ' +board[4]+ '  | ' +board[5] )
+    print ('    |   |   ')
+    print('-----------------')
+    print ('    |   |   ')
+    print ('' +board[0]+ '    | ' +board[1]+ '  |' +board[2] )
+    print ('    |   |   ')
+
+drawboard(['', '', '', '', '', '', '', '', ''])</pre>
+<p></p><h2>29 Tic Tac Toe Game</h2>
 <p>Exercise 29 </p>
 <hr/>
 <p><em>This exercise is Part 4 of 4 of the Tic Tac Toe exercise series. The other exercises are:<span> </span><a href="https://www.practicepython.org/exercise/2014/12/27/24-draw-a-game-board.html">Part 1</a>,<span> </span><a href="https://www.practicepython.org/exercise/2015/11/16/26-check-tic-tac-toe.html">Part 2</a>, and<span> </span><a href="https://www.practicepython.org/exercise/2015/11/26/27-tic-tac-toe-draw.html">Part 3</a>.</em></p>
@@ -1642,37 +1734,132 @@ return() #使用返回
 <p>Happy coding!</p>
 <p>編碼愉快!</p>
 <h3>Tic Tac Toe Game coding</h3>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">def draw_line(width, edge, filling):
+	print(filling.join([edge] * (width + 1)))
+
+def draw_board(width, height):
+	draw_line(width, " ", "__")
+	for i in range(height):
+		draw_line(width, "|", "__")
+	print("\n")
+
+def display_winner(player):
+	if player == 0:
+		print("Tie")
+	else:
+		print("Player " + str(player) + " wins!")
+
+def check_row_winner(row):
+	"""
+	Return the player number that wins for that row.
+	If there is no winner, return 0.
+	"""
+	if row[0] == row[1] and row[1] == row[2]:
+		return row[0]
+	return 0
+
+def get_col(game, col_number):
+	return [game[x][col_number] for x in range(3)]
+
+def get_row(game, row_number):
+	return game[row_number]
+
+def check_winner(game):
+	game_slices = []
+	for index in range(3):
+		game_slices.append(get_row(game, index))
+		game_slices.append(get_col(game, index))
+
+	# check diagonals
+	down_diagonal = [game[x][x] for x in range(3)]
+	up_diagonal = [game[0][2], game[1][1], game[2][0]]
+	game_slices.append(down_diagonal)
+	game_slices.append(up_diagonal)
+
+	for game_slice in game_slices:
+		winner = check_row_winner(game_slice)
+		if winner != 0:
+			display_winner(winner)
+			return winner
+
+	display_winner(winner)
+	return winner
+
+def start_game():
+	return [[0, 0, 0] for x in range(3)]
+
+def display_game(game):
+	d = {2: "O", 1: "X", 0: " "}
+	game_string = []
+	for row_num in range(3):
+		new_row = []
+		for col_num in range(3):
+			new_row.append(d[game[row_num][col_num]])
+		game_string.append(new_row)
+	print(game_string)
+
+
+def add_piece(game, player, row, column):
+	"""
+	game: game state
+	player: player number
+	row: 0-index row
+	column: 0-index column
+	"""
+	game[row][column] = player
+	return game
+
+def convert_input_to_coordinate(user_input):
+	return user_input - 1
+
+def switch_player(player):
+	if player == 1:
+		return 2
+	else:
+		return 1
+
+
+if __name__ == '__main__':
+	game = start_game()
+	display_game(game)
+	player = 1
+
+	# go on forever
+	while True:
+		print("Currently player: " + str(player))
+		row = convert_input_to_coordinate(int(input("Which row? (start with 1) ")))
+		column = convert_input_to_coordinate(int(input("Which column? (start with 1) ")))
+		game = add_piece(game, player, row, column)
+		display_game(game)
+		player = switch_player(player)</pre>
 <p></p>
 <p></p>
 <p></p>
-<p></p>
-<h1>內容</h1>
+<p></p><h1>內容</h1>
 <h2>W3網站教學影片</h2>
 <p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">影片:<a href="https://youtu.be/wNmVh06l6JE">https://youtu.be/wNmVh06l6JE</a></span></span></p>
-<h2>W8 to W18</h2>
-<p>1</p>
-<h3>W8</h3>
+<p><span style="vertical-align: inherit;"><span style="vertical-align: inherit;"></span></span></p>
+<h2>W8</h2>
 <p></p>
 <p>圖片:<a href="https://app.diagrams.net/#G1t9BJkGUG_prA0VQbg-bb35jaZ6Jhjn8Y">https://app.diagrams.net/#G1t9BJkGUG_prA0VQbg-bb35jaZ6Jhjn8Y</a></p>
-<p><img caption="false" height="592" src="/images/cp2020-w8.png" width="550"/></p>
-<h3>W10</h3>
+<p><img caption="false" height="592" src="/images/cp2020-w8.png" width="550"/></p><h2>會議記錄</h2>
+<p></p><h3>W10</h3>
 <p>會議影片:</p>
 <p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/WqUOWbLVbbQ" width="560"></iframe></p>
 <p>hw3</p>
-<p>                           題數</p>
-<p><span>黃暐翰: </span><a href="https://github.com/40823152/cp2020">40823152</a>   8<br/><span>黃品瑜:<span> </span></span><a href="https://github.com/40923205/cp2020">40923205</a><span><span>   2</span></span><br/><span>陳宗詮:<span> </span></span><a href="https://github.com/40923212/cp2020">40923212</a><span><span>   7</span></span><br/><span>陳冠言:<span> </span></span><a href="https://github.com/40923214/cp2020">40923214</a><span><span>   1</span></span><br/><span>陳彥碩:<span> </span></span><a href="https://github.com/40923217/cp2020">40923217</a>   5<br/><span>黃仲楷:<span> </span></span><a href="https://github.com/40923226/cp2020">40923226</a>   9<br/><span>詹宗樺:<span> </span></span><a href="https://github.com/40923236/cp2020">40923236</a><span><span>   4</span></span><br/><span>蔡淳宇:<span> </span></span><a href="https://github.com/40923241/cp2020">40923241</a>   3<span><span> </span></span><br/><span>蔡鴻昇:<span> </span></span><a href="https://github.com/40923242/cp2020">40923242</a>   10<br/><span>蕭仲佑:<span> </span></span><a href="https://github.com/40923246/cp2020">40923246</a>   6<br/><span>謝秉諺:<span> </span></span><a href="https://github.com/40923251/cp2020">40923251</a><span><span>   11</span></span></p>
-<h3>W11</h3>
+<p>                         分配題數</p>
+<p><span>黃暐翰: </span><a href="https://github.com/40823152/cp2020">40823152</a>   8<br/><span>黃品瑜:<span> </span></span><a href="https://github.com/40923205/cp2020">40923205</a><span><span>   2</span></span><br/><span>陳宗詮:<span> </span></span><a href="https://github.com/40923212/cp2020">40923212</a><span><span>   7</span></span><br/><span>陳冠言:<span> </span></span><a href="https://github.com/40923214/cp2020">40923214</a><span><span>   1</span></span><br/><span>陳彥碩:<span> </span></span><a href="https://github.com/40923217/cp2020">40923217</a>   5<br/><span>黃仲楷:<span> </span></span><a href="https://github.com/40923226/cp2020">40923226</a>   9<br/><span>詹宗樺:<span> </span></span><a href="https://github.com/40923236/cp2020">40923236</a><span><span>   4</span></span><br/><span>蔡淳宇:<span> </span></span><a href="https://github.com/40923241/cp2020">40923241</a>   3<span><span> </span></span><br/><span>蔡鴻昇:<span> </span></span><a href="https://github.com/40923242/cp2020">40923242</a>   10<br/><span>蕭仲佑:<span> </span></span><a href="https://github.com/40923246/cp2020">40923246</a>   6<br/><span>謝秉諺:<span> </span></span><a href="https://github.com/40923251/cp2020">40923251</a><span><span>   11</span></span></p><h3>W11</h3>
 <p><span><span>第二次會議影片:</span></span></p>
 <p><span><span><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/Va-CqSA-Yls" width="560"></iframe></span></span></p>
-<p><span><span></span></span></p>
-<p></p>
-<h3>W12</h3>
+<p>hw2 例題一教學</p>
+<p></p><h3>W12</h3>
 <p>第三次會議紀錄</p>
 <p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/nohwT3UtZ54" width="560"></iframe></p>
-<h3>w14</h3>
+<p>1.分配工作</p>
+<p>2.使用hamachi使組員連上網頁放資料</p><h3>w14</h3>
 <p>第四次會議紀錄</p>
 <p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/DnbJReropzw" width="560"></iframe></p>
-<p></p>
+<p>資料放到網頁裡</p>
 <p></p>
 <p></p>
 <p></p>
@@ -1748,8 +1935,6 @@ while quit != "enter":
     #使quit輸出'內容'
     #"enter":要輸入的內容</pre>
 <p></p>
-<h3>w12.py</h3>
-<p></p>
 <h1>BUG</h1>
 <h2>cmsimde錯誤</h2>
 <p>github 送上去的資料沒有綠勾，cmsimde開不起來，要刪除cmsimde重新安裝。</p>
@@ -1803,4 +1988,4 @@ while quit != "enter":
 <p>結論:</p>
 <p>不要取相同的標題</p>
 <p></p>
-<p></p>
+<p></p></td></tr></tbody></table>
